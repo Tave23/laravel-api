@@ -1,15 +1,30 @@
 <template>
-  <div>
-     <h1>Home con Vue</h1>
-  </div>
+   <div>
+      <Header />
+
+      <Main />
+      
+      <Footer />
+   </div>
 </template>
 
 <script>
+
+// importo i componenti
+import Header from './components/partials/Header.vue';
+import Main from './components/partials/Main.vue';
+import Footer from './components/partials/Footer.vue';
+
 export default {
-   name: "App"
+   name: "App",
+   components:{
+      Header,
+      Main,
+      Footer
+   }
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
