@@ -8,6 +8,9 @@
    <title>Public Boolpress</title>
 </head>
 <body>
+
+   {{-- div per vue --}}
+   <div id="app"></div>
    
    <h2>
       Home

@@ -29,6 +29,9 @@ Route::middleware('auth')
 
     });
 
+
+
+// sintassi precisa che dev'essere per forza in fondo 
 Route::get('{any?}', function(){
     return view('guest.home');
 })->where('any', '.*')->name('home');
