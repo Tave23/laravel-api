@@ -101,8 +101,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App"
 });
@@ -599,7 +597,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h2", [_vm._v("\n      Home con Vue \n   ")])])
+    return _c("div", [_c("h1", [_vm._v("Home con Vue")])])
   },
 ]
 render._withStripped = true

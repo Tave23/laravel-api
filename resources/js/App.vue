@@ -1,8 +1,6 @@
 <template>
   <div>
-     <h2>
-        Home con Vue 
-     </h2>
+     <h1>Home con Vue</h1>
   </div>
 </template>
 

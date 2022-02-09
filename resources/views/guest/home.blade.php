@@ -11,11 +11,6 @@
 
    {{-- div per vue --}}
    <div id="app"></div>
-   
-   <h2>
-      Home
-   </h2>
-
 
    <script>{{ asset('js/guest.js') }}</script>
 </body>
