@@ -10,10 +10,12 @@
 
       <button
       @click="printPosts(pages.current - 1)"
+      :disabled="pages.current === 1"
       >Prev Page</button>
 
       <button
       @click="printPosts(pages.current + 1)"
+      :disabled="pages.current === pages.last"
       >Next Page</button>
 
    </div>

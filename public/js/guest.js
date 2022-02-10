@@ -1967,6 +1967,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Posts",
@@ -2201,7 +2203,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "h2[data-v-a7bce10a] {\n  text-align: center;\n  margin-top: 20px;\n}\nmain[data-v-a7bce10a] {\n  overflow-y: scroll;\n}", ""]);
+exports.push([module.i, "h2[data-v-a7bce10a] {\n  text-align: center;\n  margin-top: 20px;\n}\nmain[data-v-a7bce10a] {\n  overflow-y: scroll;\n  height: 50vw;\n}", ""]);
 
 // exports
 
@@ -3497,6 +3499,7 @@ var render = function () {
       _c(
         "button",
         {
+          attrs: { disabled: _vm.pages.current === 1 },
           on: {
             click: function ($event) {
               return _vm.printPosts(_vm.pages.current - 1)
@@ -3509,6 +3512,7 @@ var render = function () {
       _c(
         "button",
         {
+          attrs: { disabled: _vm.pages.current === _vm.pages.last },
           on: {
             click: function ($event) {
               return _vm.printPosts(_vm.pages.current + 1)
