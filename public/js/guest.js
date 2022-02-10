@@ -1978,6 +1978,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Posts",
@@ -3519,9 +3521,19 @@ var render = function () {
       ),
       _vm._v(" "),
       _vm._l(_vm.pages.last, function (page) {
-        return _c("button", { key: page }, [
-          _vm._v("\n   " + _vm._s(page) + "\n   "),
-        ])
+        return _c(
+          "button",
+          {
+            key: "buttons " + page,
+            attrs: { disabled: _vm.pages.current === page },
+            on: {
+              click: function ($event) {
+                return _vm.printPosts(page)
+              },
+            },
+          },
+          [_vm._v("\n   " + _vm._s(page) + "\n   ")]
+        )
       }),
       _vm._v(" "),
       _c(

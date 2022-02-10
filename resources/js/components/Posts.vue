@@ -17,7 +17,9 @@
       <!-- bottoni nuemri pagine -->
       <button
       v-for="page in pages.last"
-      :key="page">
+      :key="`buttons ${page}`"
+      @click="printPosts(page)"
+      :disabled="pages.current === page">
       {{page}}
       </button>
 
