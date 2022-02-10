@@ -3595,7 +3595,7 @@ var render = function () {
     _vm._v(" "),
     _c("p", { staticClass: "data" }, [_vm._v(_vm._s(_vm.post.created_at))]),
     _vm._v(" "),
-    _c("p", { staticClass: "content" }, [_vm._v(_vm._s(_vm.content))]),
+    _c("p", { staticClass: "content" }, [_vm._v(_vm._s(_vm.post.content))]),
   ])
 }
 var staticRenderFns = []

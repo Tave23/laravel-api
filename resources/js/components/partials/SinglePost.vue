@@ -2,7 +2,7 @@
    <article>
       <h4><strong>{{ post.title_post }}</strong></h4>
       <p class="data">{{ post.created_at }}</p>
-      <p class="content">{{ content }}</p>
+      <p class="content">{{ post.content }}</p>
    </article>
 </template>
 
