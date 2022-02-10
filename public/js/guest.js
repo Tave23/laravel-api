@@ -3504,7 +3504,10 @@ var render = function () {
       _c("h3", [_vm._v("Ecco la lista dei Post")]),
       _vm._v(" "),
       _vm._l(_vm.posts, function (post) {
-        return _c("SinglePost", { key: post.id, attrs: { post: post } })
+        return _c("SinglePost", {
+          key: "post" + post.id,
+          attrs: { post: post },
+        })
       }),
       _vm._v(" "),
       _c(

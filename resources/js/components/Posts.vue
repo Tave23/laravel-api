@@ -4,7 +4,7 @@
 
       <SinglePost 
          v-for="post in posts"
-         :key="post.id"
+         :key="`post${post.id}`"
          :post="post"
       />
 
