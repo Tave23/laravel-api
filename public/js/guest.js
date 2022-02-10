@@ -1969,6 +1969,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Posts",
@@ -2146,7 +2155,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "h3[data-v-4ac4d2f8] {\n  padding: 35px 0;\n}\n.container[data-v-4ac4d2f8] {\n  width: 65%;\n  margin: 0 auto;\n}\n.container button[data-v-4ac4d2f8] {\n  margin: 20px 0;\n}", ""]);
+exports.push([module.i, "h3[data-v-4ac4d2f8] {\n  padding: 35px 0;\n}\n.container[data-v-4ac4d2f8] {\n  width: 65%;\n  margin: 0 auto;\n}\n.container button[data-v-4ac4d2f8] {\n  margin: 20px 10px;\n  background-color: aqua;\n  border: 1px solid black;\n  padding: 5px;\n  border-radius: 10px;\n}\n.container button[data-v-4ac4d2f8]:hover {\n  background-color: #005252;\n  color: white;\n  transition: all 0.3s;\n}", ""]);
 
 // exports
 
@@ -3508,6 +3517,12 @@ var render = function () {
         },
         [_vm._v("Prev Page")]
       ),
+      _vm._v(" "),
+      _vm._l(_vm.pages.last, function (page) {
+        return _c("button", { key: page }, [
+          _vm._v("\n   " + _vm._s(page) + "\n   "),
+        ])
+      }),
       _vm._v(" "),
       _c(
         "button",

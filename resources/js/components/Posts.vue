@@ -8,11 +8,20 @@
          :post="post"
       />
 
+      <!-- bottone pagina precedente -->
       <button
       @click="printPosts(pages.current - 1)"
       :disabled="pages.current === 1"
       >Prev Page</button>
 
+      <!-- bottoni nuemri pagine -->
+      <button
+      v-for="page in pages.last"
+      :key="page">
+      {{page}}
+      </button>
+
+      <!-- bottone pagina successiva -->
       <button
       @click="printPosts(pages.current + 1)"
       :disabled="pages.current === pages.last"
@@ -65,7 +74,17 @@ h3{
    width: 65%;
    margin: 0 auto;
    button{
-      margin: 20px 0;
+      margin: 20px 10px;
+      background-color: aqua;
+      border: 1px solid black;
+      padding: 5px;
+      border-radius: 10px;
+      &:hover{
+         background-color: rgb(0, 82, 82);
+         color: white;
+         transition: all 0.3s;
+      }
    }
+   
 }
 </style>
