@@ -18,12 +18,11 @@ footer{
    height: 50px;
    width: 100vw;
    line-height: 50px;
-   position: fixed;
-   bottom: 0;
    background-color: gray;
    display: flex;
    justify-content: center;
    align-self: center;
+   margin-top: 25px;
 }
 
 </style>

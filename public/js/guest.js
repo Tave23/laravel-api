@@ -2092,10 +2092,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SinglePost",
   props: {
     'post': Object
+  },
+  computed: {
+    updateDate: function updateDate() {
+      var d = new Date(this.post.created_at);
+      var day = d.getDate();
+      var months = d.getMonth() + 1;
+      var year = d.getFullYear();
+      if (day < 10) day = "0" + day;
+      if (months < 10) months = "0" + months;
+      return "".concat(day, " / ").concat(months, " / ").concat(year);
+    }
   }
 });
 
@@ -2113,7 +2128,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "h3[data-v-4ac4d2f8] {\n  padding: 35px 0 20px;\n}\n.container[data-v-4ac4d2f8] {\n  width: 65%;\n  margin: 0 auto;\n}", ""]);
+exports.push([module.i, "h3[data-v-4ac4d2f8] {\n  padding: 35px 0;\n}\n.container[data-v-4ac4d2f8] {\n  width: 65%;\n  margin: 0 auto;\n}", ""]);
 
 // exports
 
@@ -2132,7 +2147,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "footer[data-v-bc338846] {\n  height: 50px;\n  width: 100vw;\n  line-height: 50px;\n  position: fixed;\n  bottom: 0;\n  background-color: gray;\n  display: flex;\n  justify-content: center;\n  align-self: center;\n}", ""]);
+exports.push([module.i, "footer[data-v-bc338846] {\n  height: 50px;\n  width: 100vw;\n  line-height: 50px;\n  background-color: gray;\n  display: flex;\n  justify-content: center;\n  align-self: center;\n  margin-top: 25px;\n}", ""]);
 
 // exports
 
@@ -2151,7 +2166,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "header[data-v-79cec062] {\n  background-color: lightseagreen;\n}\nheader nav[data-v-79cec062] {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  padding: 20px;\n}\nheader ul[data-v-79cec062] {\n  display: flex;\n}\nheader ul li[data-v-79cec062] {\n  margin-right: 20px;\n  list-style-type: none;\n}\nheader ul li a[data-v-79cec062] {\n  color: black;\n  text-decoration: none;\n}\nheader ul li a[data-v-79cec062]:hover {\n  text-decoration: underline;\n}", ""]);
+exports.push([module.i, "header[data-v-79cec062] {\n  background-color: lightseagreen;\n  position: fixed;\n  top: 0;\n  width: 100vw;\n}\nheader nav[data-v-79cec062] {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  padding: 20px;\n}\nheader ul[data-v-79cec062] {\n  display: flex;\n}\nheader ul li[data-v-79cec062] {\n  margin-right: 20px;\n  list-style-type: none;\n}\nheader ul li a[data-v-79cec062] {\n  color: black;\n  text-decoration: none;\n}\nheader ul li a[data-v-79cec062]:hover {\n  text-decoration: underline;\n}", ""]);
 
 // exports
 
@@ -2170,7 +2185,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "h2[data-v-a7bce10a] {\n  text-align: center;\n  margin-top: 20px;\n}\nmain[data-v-a7bce10a] {\n  overflow: scroll;\n}", ""]);
+exports.push([module.i, "h2[data-v-a7bce10a] {\n  text-align: center;\n  margin-top: 20px;\n}\nmain[data-v-a7bce10a] {\n  overflow-y: scroll;\n}", ""]);
 
 // exports
 
@@ -2189,7 +2204,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "h4[data-v-52028fca] {\n  margin: 25px 0 5px;\n}\n.data[data-v-52028fca] {\n  font-size: 12px;\n  font-style: italic;\n  margin-bottom: 15px;\n}", ""]);
+exports.push([module.i, "h4[data-v-52028fca] {\n  margin: 25px 0 5px;\n}\n.data[data-v-52028fca] {\n  font-size: 12px;\n  font-style: italic;\n  margin-bottom: 15px;\n}\narticle a[data-v-52028fca] {\n  text-decoration: none;\n  color: black;\n}\narticle a[data-v-52028fca]:hover {\n  color: blue;\n}", ""]);
 
 // exports
 
@@ -3591,9 +3606,15 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("article", [
-    _c("h4", [_c("strong", [_vm._v(_vm._s(_vm.post.title_post))])]),
+    _c("h4", [
+      _c("strong", [
+        _c("a", { attrs: { href: "#" } }, [
+          _vm._v("\n         " + _vm._s(_vm.post.title_post) + "\n      "),
+        ]),
+      ]),
+    ]),
     _vm._v(" "),
-    _c("p", { staticClass: "data" }, [_vm._v(_vm._s(_vm.post.created_at))]),
+    _c("p", { staticClass: "data" }, [_vm._v(_vm._s(_vm.updateDate))]),
     _vm._v(" "),
     _c("p", { staticClass: "content" }, [_vm._v(_vm._s(_vm.post.content))]),
   ])

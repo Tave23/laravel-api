@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 h3{
-   padding: 35px 0 20px;
+   padding: 35px 0;
 }
 
 .container{

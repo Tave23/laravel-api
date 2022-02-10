@@ -29,6 +29,9 @@ export default {
 
 header{
    background-color: lightseagreen;
+   position: fixed;
+   top: 0;
+   width: 100vw;
    nav{
       display: flex;
       justify-content: space-around;

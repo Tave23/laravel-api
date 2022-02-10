@@ -27,6 +27,6 @@ h2{
 }
 
 main{
-   overflow: scroll;
+   overflow-y: scroll;
 }
 </style>
