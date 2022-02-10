@@ -2,44 +2,53 @@
    <div class="container">
       <h3>Ecco la lista dei Post</h3>
 
-      <SinglePost 
+      <div v-if="posts">
+
+         <SinglePost 
          v-for="post in posts"
          :key="`post${post.id}`"
          :post="post"
-      />
+         />
 
-      <!-- bottone pagina precedente -->
-      <button
-      @click="printPosts(pages.current - 1)"
-      :disabled="pages.current === 1"
-      >Prev Page</button>
+         <!-- bottone pagina precedente -->
+         <button
+         @click="printPosts(pages.current - 1)"
+         :disabled="pages.current === 1"
+         >Prev Page</button>
 
-      <!-- bottoni nuemri pagine -->
-      <button
-      v-for="page in pages.last"
-      :key="`buttons ${page}`"
-      @click="printPosts(page)"
-      :disabled="pages.current === page">
-      {{page}}
-      </button>
+         <!-- bottoni nuemri pagine -->
+         <button
+         v-for="page in pages.last"
+         :key="`buttons ${page}`"
+         @click="printPosts(page)"
+         :disabled="pages.current === page">
+         {{page}}
+         </button>
 
-      <!-- bottone pagina successiva -->
-      <button
-      @click="printPosts(pages.current + 1)"
-      :disabled="pages.current === pages.last"
-      >Next Page</button>
+         <!-- bottone pagina successiva -->
+         <button
+         @click="printPosts(pages.current + 1)"
+         :disabled="pages.current === pages.last"
+         >Next Page</button>
+      </div>
+      
+      <div v-else>
+         <Loading />
+      </div>
 
    </div>
 </template>
 
 <script>
 
-import SinglePost from './partials/SinglePost.vue'
+import SinglePost from './partials/SinglePost.vue';
+import Loading from './partials/Loading.vue';
 
 export default {
    name: "Posts",
    components:{
-      SinglePost
+      SinglePost,
+      Loading
    },
    data(){
       return{
