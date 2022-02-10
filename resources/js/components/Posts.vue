@@ -86,6 +86,10 @@ h3{
          color: white;
          transition: all 0.3s;
       }
+      &:disabled{
+         background-color: lightgrey;
+         color: black;
+      }
    }
    
 }
