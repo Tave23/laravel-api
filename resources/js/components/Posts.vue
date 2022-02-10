@@ -7,6 +7,15 @@
          :key="post.id"
          :post="post"
       />
+
+      <button
+      @click="printPosts(pages.current - 1)"
+      >Prev Page</button>
+
+      <button
+      @click="printPosts(pages.current + 1)"
+      >Next Page</button>
+
    </div>
 </template>
 
@@ -21,19 +30,24 @@ export default {
    },
    data(){
       return{
-         urlApi: 'http://127.0.0.1:8000/api/posts',
-         posts: null
+         urlApi: 'http://127.0.0.1:8000/api/posts?page=',
+         posts: null,
+         pages: {}
       }
    },
    mounted(){
       this.printPosts();
    },
    methods:{
-      printPosts(){
-         axios.get(this.urlApi)
+      printPosts(page = 1){
+         axios.get(this.urlApi + page)
          .then(result => {
-            this.posts = result.data.posts
+            this.posts = result.data.posts.data
             // console.log(result.data.posts);
+            this.pages = {
+               current : result.data.posts.current_page,
+               last : result.data.posts.last_page
+            }
          })
       }
    }
@@ -48,5 +62,8 @@ h3{
 .container{
    width: 65%;
    margin: 0 auto;
+   button{
+      margin: 20px 0;
+   }
 }
 </style>

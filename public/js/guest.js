@@ -1958,6 +1958,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Posts",
@@ -1966,8 +1975,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      urlApi: 'http://127.0.0.1:8000/api/posts',
-      posts: null
+      urlApi: 'http://127.0.0.1:8000/api/posts?page=',
+      posts: null,
+      pages: {}
     };
   },
   mounted: function mounted() {
@@ -1977,8 +1987,14 @@ __webpack_require__.r(__webpack_exports__);
     printPosts: function printPosts() {
       var _this = this;
 
-      axios.get(this.urlApi).then(function (result) {
-        _this.posts = result.data.posts; // console.log(result.data.posts);
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get(this.urlApi + page).then(function (result) {
+        _this.posts = result.data.posts.data; // console.log(result.data.posts);
+
+        _this.pages = {
+          current: result.data.posts.current_page,
+          last: result.data.posts.last_page
+        };
       });
     }
   }
@@ -2128,7 +2144,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "h3[data-v-4ac4d2f8] {\n  padding: 35px 0;\n}\n.container[data-v-4ac4d2f8] {\n  width: 65%;\n  margin: 0 auto;\n}", ""]);
+exports.push([module.i, "h3[data-v-4ac4d2f8] {\n  padding: 35px 0;\n}\n.container[data-v-4ac4d2f8] {\n  width: 65%;\n  margin: 0 auto;\n}\n.container button[data-v-4ac4d2f8] {\n  margin: 20px 0;\n}", ""]);
 
 // exports
 
@@ -3477,6 +3493,30 @@ var render = function () {
       _vm._l(_vm.posts, function (post) {
         return _c("SinglePost", { key: post.id, attrs: { post: post } })
       }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          on: {
+            click: function ($event) {
+              return _vm.printPosts(_vm.pages.current - 1)
+            },
+          },
+        },
+        [_vm._v("Prev Page")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          on: {
+            click: function ($event) {
+              return _vm.printPosts(_vm.pages.current + 1)
+            },
+          },
+        },
+        [_vm._v("Next Page")]
+      ),
     ],
     2
   )
